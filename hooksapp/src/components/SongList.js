@@ -3,14 +3,14 @@ import uuid from 'uuid/v1'
 import NewSongForm from './NewSongForm'
 
 const SongList =() =>{
-    const [songs,setSongs] = useState([
-        {title: 'rab god' , id: 1},
-        {title:'i can do it' , id:2},
-        {title:'never say never', id:3}
-      ])
+    const [songs,setSongs] = useState([])
 
      const addSong = (title) =>{
          setSongs([...songs,{title:title , id: uuid()}])
+      }
+
+      const removeSong = (id) =>{
+          setSongs(songs.filter(singer => singer.id !== id ))
       }
     
     return(
@@ -18,7 +18,9 @@ const SongList =() =>{
             <ul>
             {songs.map(song =>{
                 return(
-                    <li key={song.id}>{song.title} </li> 
+                    <li style={{color:'pink'}} key={song.id}
+                     onClick = {() => removeSong(song.id)}>
+                        {song.title}</li> 
                 )
             })}
             </ul>

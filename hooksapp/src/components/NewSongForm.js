@@ -6,7 +6,6 @@ const NewSongForm = ({addSong}) =>{
        e.preventDefault();
        addSong(title);
        setTitle('')
-
    }
 
     return(
